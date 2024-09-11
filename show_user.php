@@ -2,10 +2,10 @@
 require_once 'condb.php';
 include 'header.php';
 include 'footer.php';
-$sql = "SELECT * FROM $table";
+$sql = "SELECT * FROM tb_users ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -26,28 +26,34 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table class="table" id="userTable">
             <thead>
                 <tr>
-                    <th>id tickets</th>
-                    <th>ชื่อคอนเสิร์ต</th>
-                    <th>ราคาบัตร</th>
-                    <th style='text-align:center;'>ประเทศ</th>
-                    <th>เพิ่มข้อมูลโดย</th>
-                    <th>วันที่ลงข้อมูล</th>
+                    <th>id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th style='text-align:center;'>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <?php
-            foreach ($tickets as $ticket) {
+            foreach ($users as $user) {
+                if($user['role']==1){
+                    $role = "Admin";
+                }else{
+                    $role = "User";
+                    
+                }
                 echo "<tbody><tr>
-                    <td style='text-align:center;'>" . $ticket['concert_id'] . "</td>
-                    <td>" . $ticket['concert_name'] . "</td>
-                    <td style='text-align:center;'>" . $ticket['price'] . "</td>
-                    <td style='text-align:center;'>" . $ticket['country'] . "</td>
-                    <td>" . $ticket['uploadBy'] . "</td>
-                    <td style='text-align:center;'>" . $ticket['reg_date'] . "</td>
+                    <td style='text-align:center;'>" . $user['id'] . "</td>
+                    <td>" . $user['fname'] . "</td>
+                    <td style='text-align:center;'>" . $user['iname'] . "</td>
+                    <td style='text-align:center;'>" . $user['email'] . "</td>
+                    <td>" . $user['password'] . "</td>
+                    <td style='text-align:center;'>" . $role . "</td>
                     ";
 
                 ?>
-                <td>
+                <td class="d-flex" style="gap:5px;">
                         
                         <form action="update_concert.php" method="POST" style="display:inline;">
                             <input type="hidden" name="concert_id" value="<?php echo $ticket['concert_id']; ?>">

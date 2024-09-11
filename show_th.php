@@ -2,9 +2,9 @@
 require_once 'condb.php';
 include 'header.php';
 include 'footer.php';
-$sql = "SELECT * FROM $table";
+$sql = "SELECT * FROM $table WHERE country = :country";
 $stmt = $conn->prepare($sql);
-$stmt->execute();
+$stmt->execute(['country'=>'ไทย']);
 $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 

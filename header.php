@@ -1,4 +1,5 @@
 <?php session_start();
+require_once 'rows.php';
     if(!isset($_SESSION['role'])){
         header('Location: login.php');
         exit();
@@ -26,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php"><img src="img/22.jpg" alt="myphoto" class="rounded-pill
-me-2" style="width: 30px;">Nattawat @PHP</a>
+me-2" style="width: 30px;"><?php echo strtoupper($user['fname']." ".$user['iname']) ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bstarget="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 arialabel="Toggle navigation">

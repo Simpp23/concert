@@ -11,25 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $row = $check_data->fetch(PDO::FETCH_ASSOC);
     if ($row) {
         if (password_verify($password, $row['password'])) {
-            if ($row['role'] == 1) {
                 $_SESSION['role'] = $row['role'];
-                $_SESSION['admin_login'] = $row['id'];
+                $_SESSION['id'] = $row['id'];
                 header("Location: index.php");
                 exit; // Terminate script after redirection
-            } else {
-                $_SESSION['role'] = $row['role'];
-                $_SESSION['user_login'] = $row['id'];
-                header("Location: index.php");
-                exit; // Terminate script after redirection
-            }
+            
         } else {
             $_SESSION['error'] = 'รหัสผ่านผิด';
-            header("Location: index.php");
+            header("Location: login.php");
             exit; // Terminate script after redirection
         }
     } else {
         $_SESSION['error'] = "ไม่มีข้อมูลในระบบ";
-        header("Location: index.php");
+        header("Location: login.php");
         exit; // Terminate script after redirection
     }
 }
