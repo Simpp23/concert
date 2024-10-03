@@ -55,15 +55,15 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <td class="d-flex" style="gap:5px;">
                         
-                        <form action="update_concert.php" method="POST" style="display:inline;">
-                            <input type="hidden" name="concert_id" value="<?php echo $ticket['concert_id']; ?>">
+                        <form action="edit_user.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                             <button type="submit" class="btn btn-primary btn-sm">Edit</button>
                         </form>
                         <form action="delete_script.php" method="POST" style="display:inline;">
-                            <input type="hidden" name="concert_id" value="<?php echo $ticket['concert_id']; ?>">
+                            <input type="hidden" name="concert_id" value="<?php echo $user['id']; ?>">
                             <!-- <input type="submit" name="delete" value="Delete" class="btn btn-danger btn-sm"> -->
                             <button type="button" class="btn btn-danger btn-sm delete-button"
-                                data-user-id="<?php echo $ticket['concert_id']; ?>">Delete</button>
+                                data-user-id="<?php echo $user['id']; ?>">Delete</button>
                         </form>
 
 

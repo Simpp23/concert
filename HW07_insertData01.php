@@ -3,10 +3,11 @@
 
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(isset($_POST['name']) && isset($_POST['price']) && isset($_POST['uploadBy'])){
+        if(isset($_POST['name']) && isset($_POST['price']) && isset($_POST['country']) && isset($_POST['uploadBy'])){
             $name = $_POST['name'];
             $price = $_POST['price'];
             $uploadBy = $_POST['uploadBy'];
+            $country = $_POST['country'];
 
             // $sql = "INSERT INTO $table (name, price, addBy) VALUES ('$name' , '$price' ,'$uploadBy' )";
             // $result = $conn->exec($sql); ธรรมดา
@@ -14,10 +15,11 @@
             // $sql = "INSERT INTO $table (concert_name, price, uploadBy) VALUES (:concert_name,:price,:uploadBy)";
             // $smt = $conn->prepare($sql); แบบ2
 
-            $sql = "INSERT INTO $table (concert_name, price, uploadBy) VALUES (:concert_name,:price,:uploadBy)";
+            $sql = "INSERT INTO $table (concert_name, price, country, uploadBy) VALUES (:concert_name,:price, :country,:uploadBy)";
             $smt = $conn->prepare($sql);
             $smt->bindParam(":concert_name", $name);
             $smt->bindParam(":price", $price);
+            $smt->bindParam(":country", $country);
             $smt->bindParam(":uploadBy", $uploadBy); //prepare statement แบบ2
 
             $result = $smt->execute();

@@ -1,5 +1,11 @@
+<?php 
+include "header.php";
+include "footer.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>PHP-DB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,11 +19,13 @@
         }
     </style>
 </head>
+
 <body>
     <?php
-    include "header.php";
+
     include "main-menu.php";
-    include "footer.php";
-?>
+
+    ?>
 </body>
+
 </html>

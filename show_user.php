@@ -55,7 +55,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <td class="d-flex" style="gap:5px;">
                         
-                        <form action="update_concert.php" method="POST" style="display:inline;">
+                        <form action="edit_user.php" method="POST" style="display:inline;">
                             <input type="hidden" name="concert_id" value="<?php echo $ticket['concert_id']; ?>">
                             <button type="submit" class="btn btn-primary btn-sm">Edit</button>
                         </form>

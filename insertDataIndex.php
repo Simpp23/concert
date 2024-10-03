@@ -24,8 +24,12 @@ include "footer.php";
                 <input type="text" placeholder="กรอกราคาบัตรคอนเสิร์ต" class="form-control" name="price" id="price" aria-describedby="price">
             </div>
             <div class="mb-3">
+                <label for="country" class="form-label">ประเทศ</label>
+                <input type="text" placeholder="กรอกราคาบัตรคอนเสิร์ต" class="form-control" name="country" id="country" aria-describedby="country">
+            </div>
+            <div class="mb-3">
                 <label for="num_teacher" class="form-label">อัปโหลดข้อมูล</label>
-                <input type="text" placeholder="กรอกชื่อผู้อัปโหลดข้อมูล" class="form-control" name="num_teacher" id="num_teacher" aria-describedby="num_teacher">
+                <input type="text" placeholder="กรอกชื่อผู้อัปโหลดข้อมูล" class="form-control" name="uploadBy" id="uploadBy" aria-describedby="uploadBy">
             </div>
             <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
         </form>
